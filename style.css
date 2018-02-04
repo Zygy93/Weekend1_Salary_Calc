@@ -4,7 +4,8 @@ a {
 }
 body {
   font-family: courier;
-  background-color: silver;
+  background-image: url(http://www.gosugamers.net/files/images/news/2017/april/midas_small.jpg);
+  background-size: cover;
 }
 div {
   font-family: courier;
@@ -12,25 +13,24 @@ div {
 }
 h1 {
   color: black;
+  width: 400px;
   font-family: arial;
+  border: 3px solid black;
+  background-color: gold;
   margin-left: 1%;
+  padding: 5px 0;
+  text-align: center;
 }
-h2 {
-  color: black;
-  font-family: arial;
-  margin-left: 2%;
-}
-h3 {
-  color: black;
-  font-family: arial;
-  margin-left: 2%;
-}
-p {
-  color: navy;
-  font-family: courier;
-}
-
 .bigBack{
   width: 100%;
   height: 100%
+}
+h2{
+  color: black;
+  width: 400px;
+  font-family: arial;
+  border: 3px solid black;
+  background-color: gold;
+  padding: 5px 0;
+  border-width: medium;
 }
