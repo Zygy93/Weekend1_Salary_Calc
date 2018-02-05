@@ -1,5 +1,4 @@
 var info = [];
-var monthlyUpkeep = [];
 $( document ).ready( function(){
   $( '#button' ).on( 'click', function(){
     // capture user input
@@ -15,6 +14,7 @@ $( document ).ready( function(){
     info.push( newEmployee );
     // display what is in our list
       displayInfo();
+      displayMonthlyTotal();
     // empty inputs
     $( '#firstIn' ).val( '' );
     $( '#lastIn' ).val( '' );
@@ -32,14 +32,36 @@ $( document ).ready( function(){
     $( '#titleIn' ).val( companyEmployee[ 0 ].jobTitle );
     $( '#salaryIn' ).val( companyEmployee[ 0 ].annualSalary );
     displayInfo();
+    displayMonthlyTotal();
   });
-  }); //end doc ready
-
+}); //end doc ready
+function monthlyCost(){
+  var upkeep = [];
+for(var i=0; i<info.length; i++){
+upkeep.push(parseInt(info[ i ].annualSalary));
+}
+return upkeep;
+}//end salary array
+function averageMonth(cost){
+var totalCost = 0;
+for ( var i = 0; i < cost.length; i++ ){
+    totalCost += cost[i];
+}
+costPerMonth = (totalCost/12);
+return costPerMonth;
+}
+function displayMonthlyTotal(){
+var monthCost = $( '#monthlyCost' );
+    monthCost.empty();
+var costToAppend = '<li>';
+    costToAppend += ('$' + averageMonth(monthlyCost(info)));
+    costToAppend += '</li>';
+    monthCost.append( costToAppend );
+}
 function displayInfo(){
   console.log( 'in infoDisplay' );
   // target output element by ID
   var output = $( '#infoOut' );
-
   // empty output element
   output.empty();
   //loop
